@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Enter Blood Report</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header class="navbar">
+        <div class="container">
+            <h1 class="logo">Blood Report Analyzer</h1>
+            <nav>
+                <ul>
+                    <li><a href="/">Home</a></li>
+                    <li><a href="/enter-report" class="active">Analyze Report</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container">
+        <h1 class="page-title">Enter Your Blood Report</h1>
+        
+        <div id="error-message" class="error-message" style="display: none;"></div>
+        
+        <form id="blood-report-form">
+            <div class="form-group">
+                <label>Gender</label>
+                <div class="radio-group">
+                    <label class="radio-label">
+                        <input type="radio" name="gender" value="male" checked> Male
+                    </label>
+                    <label class="radio-label">
+                        <input type="radio" name="gender" value="female"> Female
+                    </label>
+                </div>
+            </div>
+            
+            <div class="form-group">
+                <label for="age">Age (Should be greater than or equal to 18)</label>
+                <input type="number" id="age" name="age" required min="18" max="120" required>
+            </div>
+            
+            <h2 class="section-title">Blood Test Results</h2>
+            
+            <div class="table-responsive">
+                <table class="blood-test-table">
+                    <thead>
+                        <tr>
+                            <th>Test Name</th>
+                            <th>Your Result</th>
+                            <th>Units</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for test_key, test in tests.items() %}
+                        <tr>
+                            <td>{{ test_key }}</td>
+                            <td><input type="number" step="any" name="{{ test_key }}" class="test-input" required></td>
+                            <td>{{ test.units }}</td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+            
+            <div class="form-actions">
+                <button type="submit" class="btn btn-primary">Analyze Report</button>
+            </div>
+        </form>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Blood Report Analyzer. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="/static/js/main.js"></script>
+</body>
+</html>

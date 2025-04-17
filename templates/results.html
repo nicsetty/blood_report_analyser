@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Report Analysis | Blood Report Analyzer</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header class="navbar">
+        <div class="container">
+            <h1 class="logo">Blood Report Analyzer</h1>
+            <nav>
+                <ul>
+                    <li><a href="/">Home</a></li>
+                    <li><a href="/enter-report">Analyze Report</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container">
+        <h1 class="page-title">Your Blood Report Analysis</h1>
+        
+        <section class="patient-details">
+            <h2>Patient Details</h2>
+            <div class="detail-card">
+                <p><strong>Gender:</strong> <span id="patient-gender"></span></p>
+                <p><strong>Age:</strong> <span id="patient-age"></span></p>
+            </div>
+        </section>
+        
+        <section class="test-results">
+            <h2>Test Results Summary</h2>
+            <div class="table-responsive">
+                <table class="results-table">
+                    <thead>
+                        <tr>
+                            <th>Test</th>
+                            <th>Your Value</th>
+                            <th>Normal Range</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody id="results-table-body">
+                        <!-- Filled by JavaScript -->
+                    </tbody>
+                </table>
+            </div>
+        </section>
+        
+        <section id="predictions-section" class="abnormalities" style="display: none;">
+            <h2>Predicted Blood Cells Abnormalities/Infections</h2>
+            <ul id="predictions-list" class="predictions-list">
+                <!-- Filled by JavaScript -->
+            </ul>
+        </section>
+
+        <section id="abnormalities-section" class="abnormalities" style="display: none;">
+            <h2>Abnormalities Detected</h2>
+            <ul id="abnormalities-list" class="abnormalities-list">
+                <!-- Filled by JavaScript -->
+            </ul>
+        </section>
+
+        <section id="abnormalities-section" class="abnormalities" style="display: none;">
+            <h2>Abnormalities Detected</h2>
+            <ul id="abnormalities-list" class="abnormalities-list">
+                <!-- Filled by JavaScript -->
+            </ul>
+        </section>
+        
+        <section class="recommendations">
+            <h2>Health Recommendations</h2>
+            <div id="recommendations-content">
+                <!-- Filled by JavaScript -->
+            </div>
+        </section>
+        
+        <div class="note-box">
+            <p><strong>Note:</strong> Temporary factors (stress, dehydration, illness) may affect values. Persistent abnormalities should be discussed with a healthcare professional.</p>
+        </div>
+        
+        <div class="action-buttons">
+            <a href="/enter-report" class="btn btn-outline">Analyze Another Report</a>
+            <button id="download-pdf" class="btn btn-primary">Download Full Report</button>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Blood Report Analyzer. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="/static/js/main.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+</body>
+</html>
